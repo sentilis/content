@@ -1,6 +1,6 @@
 ---
-name: Templates
-slug: templates
+name: "Awesome Templates: Bio, Market & Press"
+slug: sentilis-templates
 category: Documentation
 ---
 

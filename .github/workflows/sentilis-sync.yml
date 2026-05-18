@@ -1,0 +1,58 @@
+name: Publish content to Sentilis
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "en/**"
+      - "es/**"
+      - ".github/workflows/sentilis-sync.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "en/**"
+      - "es/**"
+  workflow_dispatch:
+
+jobs:
+  # English profile (Profile 1)
+  sync-en:
+    name: Sync EN profile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Sentilis CLI
+        run: npm i -g @sentilis/cli
+
+      - name: Authenticate with Sentilis (EN)
+        run: sentilis auth login ${{ secrets.SENTILIS_TOKEN_EN }}
+
+      - name: Sync EN content (strict)
+        run: sentilis sync ./en --strict
+
+  # Spanish profile (Profile 2)
+  # sync-es:
+  #   name: Sync ES profile
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+
+  #     - name: Install Sentilis CLI
+  #       run: npm i -g @sentilis/cli
+
+  #     - name: Authenticate with Sentilis (ES)
+  #       run: sentilis auth login ${{ secrets.SENTILIS_TOKEN_ES }}
+
+  #     - name: Sync ES content (strict)
+  #       run: sentilis sync ./es --strict
