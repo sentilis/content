@@ -1,5 +1,5 @@
 ---
-name: What is Market?
+name: What is Sentilis Market?
 slug: what-is-market
 category: Documentation
 ---

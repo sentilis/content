@@ -1,5 +1,5 @@
 ---
-name: What is a Bio?
+name: What is Sentilis Bio?
 slug: what-is-a-bio
 category: Documentation
 ---

@@ -1,5 +1,5 @@
 ---
-name: What is a Press?
+name: What is Sentilis Press?
 slug: what-is-a-press
 category: Documentation
 ---
